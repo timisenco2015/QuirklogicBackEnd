@@ -1,4 +1,4 @@
-    const bookRepo = require('../api/repo/bookRepo');
+    const bookRepo = require('../api/repo/BookRepo');
 
 
     jest.mock('../api/config/sqlLiteConfig')
