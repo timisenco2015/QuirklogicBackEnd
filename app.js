@@ -6,10 +6,10 @@ const sqlite3 = require('sqlite3').verbose();
   var logger = require('morgan');
   var app = express();
 
-  require('./api/config/sqlLiteConfig').initialize().createTables();
+  require('./api/config/SqlLiteConfig').initialize().createTables();
   require('dotenv').config();
 
-  let booksRoutes = require('./api/routes/booksRoute');
+  let booksRoutes = require('./api/routes/BooksRoute');
 
   const http = require('http');
   _ = require("underscore");
@@ -45,7 +45,7 @@ const sqlite3 = require('sqlite3').verbose();
         /******************* Service Launch *****************/
         try {
         const server = http.createServer(app);
-        server.listen(8000);
+        server.listen(process.env.PORT);
         server.on('error', onError);
         console.log(`runnings on :http://${process.env.HOST}:${process.env.PORT}`);
     } catch (error) {

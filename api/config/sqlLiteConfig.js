@@ -6,7 +6,6 @@ class SqlLiteDbConfig {
     }
 
     initialize(){
-        
         this.db = new sqlite3.Database(`${process.env.SQLLITEDBFILELOCATION}`, sqlite3.OPEN_READWRITE|sqlite3.OPEN_CREATE, (err) => {
             if (err) {
               return console.error(err.message);
@@ -17,7 +16,7 @@ class SqlLiteDbConfig {
     };
 
     createTables() {
-        this.db.run('CREATE TABLE IF NOT EXISTS books(id integer primary key autoincrement, name text not null unique, author not null, keyword varchar(10) not null)')
+        this.db.run('CREATE TABLE IF NOT EXISTS books(id integer primary key autoincrement, name text not null, author not null, keyword varchar(10) not null)')
     };
 
     createBook(book){

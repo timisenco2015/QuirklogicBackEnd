@@ -1,4 +1,4 @@
-const database = require('../config/sqlLiteConfig');
+const database = require('../config/SqlLiteConfig');
 var Book = require('../entity/Book');
 
 
@@ -24,9 +24,9 @@ let bookRepo =
                 booksList.push(new Book(record.id,record.name,record.author,record.keyword ));
             }
            
-             return {status: 200,statusDesc:"succesful",data:{message: 'list of all books fecth successfully','Books':booksList}};
+             return {status: 200,statusDesc:"succesful",data:{message: 'List of all books fecth successfully',Books:booksList}};
          }
-         return {status: 200,statusDesc:"failed",message: 'list of all books fecth failed due to this error:'+isRecordFetched.error};
+         return {status: 200,statusDesc:"failed",message: 'List of all books fecth failed due to this error:'+isRecordFetched.error};
     
       },
        deleteBook: async function(req, res) 
