@@ -1,4 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
+require('dotenv').config();
 
 class SqlLiteDbConfig {
     constructor() {
@@ -6,7 +7,7 @@ class SqlLiteDbConfig {
     }
 
     initialize(){
-        this.db = new sqlite3.Database(`${process.env.SQLLITEDBFILELOCATION}`, sqlite3.OPEN_READWRITE|sqlite3.OPEN_CREATE, (err) => {
+      this.db = new sqlite3.Database(`${process.env.SQLLITEDBFILELOCATION}`, sqlite3.OPEN_READWRITE|sqlite3.OPEN_CREATE, (err) => {
             if (err) {
               return console.error(err.message);
             }
